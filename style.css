@@ -1,0 +1,302 @@
+/******************************************************************
+ *                         1. GLOBAL STYLES                       *
+ ******************************************************************/
+
+:root{
+  --bg-color: #000000;
+  --glass-bg: rgba(255,255,255,0.05);
+  --glass-border: rgba(255,255,255,0.1);
+  --accent: #9ef0ff;
+  --glass-blur: 10px;
+  --max-content-width: 1800px;
+  --section-padding: 5%;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  min-height:100vh;
+  font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: var(--bg-color);
+  color:#fff;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background-image:url('background.png');
+  background-size:cover;
+  background-position:center;
+  z-index:-2;
+  transform:translateZ(0);
+  filter: brightness(0.55);
+}
+
+
+/******************************************************************
+ *                         2. NAVIGATION                          *
+ ******************************************************************/
+
+.nav-wrap{
+  position:fixed; /* Zmieniono ze sticky na fixed, aby pasek nie znikał */
+  top:20px;
+  z-index:60;
+  display:flex;
+  justify-content:center;
+  width:100%; /* Dodano, aby fixed działał poprawnie na całej szerokości */
+  padding:0 var(--section-padding);
+}
+.nav{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  width:100%;
+  max-width: var(--max-content-width);
+  padding:20px 36px;
+  border-radius:20px;
+  background: var(--glass-bg);
+  border:1px solid var(--glass-border);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  box-shadow: 0 6px 24px rgba(0,0,0,0.6);
+  position:relative;
+}
+.nav-link{
+  color: #9ef0ff;
+  font-weight: 700;
+  text-decoration: none;
+  margin-left: 24px;
+  text-shadow: 0 0 4px rgba(158,240,255,0.5), 0 0 8px rgba(158,240,255,0.3);
+  transition: color 0.15s ease, transform 0.12s ease;
+}
+.nav-link:first-child{margin-left:0;}
+.nav-link:hover{
+  text-shadow: 0 0 6px rgba(158,240,255,0.7), 0 0 12px rgba(158,240,255,0.5);
+}
+
+/* Language switcher centered */
+.lang-switcher {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+.lang-btn {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+.lang-btn:hover { background: rgba(255,255,255,0.2); transform: translateY(-1px); }
+.lang-btn.active { background: var(--accent); color: #071219; border-color: var(--accent); }
+
+
+/******************************************************************
+ *                     3. LAYOUT & TYPOGRAPHY                     *
+ ******************************************************************/
+
+.section{ display:flex; justify-content:center; width:100%; padding:140px var(--section-padding); }
+
+/* Panels (Glass effect containers) */
+.panel{ width:100%; max-width: var(--max-content-width); border-radius:24px; padding:60px 48px;
+  background: var(--glass-bg); border:1px solid var(--glass-border);
+  backdrop-filter: blur(var(--glass-blur)); -webkit-backdrop-filter: blur(var(--glass-blur));
+  box-shadow:0 12px 40px rgba(0,0,0,0.5),0 0 16px rgba(158,240,255,0.05);
+  transform:translateZ(0); will-change: transform, opacity;
+}
+
+/* Text */
+.title{ font-size:clamp(2.2rem,4vw,3.2rem); font-weight:700; margin-bottom:24px; }
+.lead{ font-size:clamp(1.2rem,2vw,1.4rem); color:rgba(255,255,255,0.95); margin-bottom:36px; line-height:1.6; }
+
+
+/******************************************************************
+ *                           4. BUTTONS                           *
+ ******************************************************************/
+
+.controls{ display:flex; flex-direction:column; gap:24px; align-items:center; }
+.btn{ display:inline-block; padding:16px 32px; border-radius:20px; font-weight:700; text-decoration:none; text-align:center;
+  transition: transform 0.15s ease, filter 0.15s ease; box-shadow:0 6px 16px rgba(0,0,0,0.5); will-change: transform, filter;
+}
+.btn.get-started{ background:#2eff7d; color:#071219; border:2px solid rgba(46,255,125,0.5);
+  box-shadow:0 0 4px rgba(46,255,125,0.5),0 0 10px rgba(46,255,125,0.25),inset 0 0 14px rgba(46,255,125,0.1); }
+.btn.get-started:hover{ filter:brightness(1.07); transform:translateY(-2px); }
+.btn.showcase{ background:#fff; color:#071219; border:2px solid rgba(255,255,255,0.25);
+  box-shadow:0 0 4px rgba(255,255,255,0.25),0 0 10px rgba(255,255,255,0.15),inset 0 0 6px rgba(255,255,255,0.08); }
+.btn.showcase:hover{ filter:brightness(1.1); transform:translateY(-2px); }
+.btn-row{ display:flex; justify-content:center; gap:28px; flex-wrap:wrap; }
+
+
+/******************************************************************
+ *                           5. PRICING                           *
+ ******************************************************************/
+
+.pricing-grid{ display:flex; justify-content:center; gap:32px; flex-wrap:wrap; }
+.plan-card{ flex:1 1 260px; max-width:360px; padding:32px 28px; border-radius:20px; background:rgba(255,255,255,0.05);
+  text-align:left; border:2px solid transparent; box-shadow:0 6px 24px rgba(0,0,0,0.5); transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease; cursor:default;}
+.plan-card:hover{ transform:translateY(-6px); box-shadow:0 12px 36px rgba(0,0,0,0.6);}
+.plan-free{border-color:#9ef0ff;} .plan-pro{border-color:#2eff7d;} .plan-ultimate{border-color:#ff8c00;}
+.plan-card h3{ margin-bottom:16px; font-size:1.5rem; font-weight:700; color:#fff; text-align:center;}
+.plan-card table{ width:100%; border-collapse:collapse; }
+.plan-card td{ padding:6px 4px; font-size:1rem; color:rgba(255,255,255,0.9);}
+.plan-card td:first-child{ font-weight:600; color:rgba(158,240,255,0.9);}
+.plan-card td:last-child{ text-align:right; }
+
+/* Plan card button positioning */
+.plan-card {
+  position: relative;
+  padding-bottom: 60px; /* Leaves space for the button + some margin */
+}
+.plan-card .select-plan {
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.5em 1em;
+  white-space: nowrap;
+}
+
+/* Subscription duration buttons */
+.subscription-buttons {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 25px;
+    justify-content: center;
+}
+.duration-btn {
+    background: #2a2a2a;
+    color: #ddd;
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: 2px solid #444;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.25s ease;
+}
+/* hover */
+.duration-btn:hover {
+    background: #3b3b3b;
+    border-color: #5a5a5a;
+    color: #fff;
+}
+/* clicked / active */
+.duration-btn.active {
+    background: #4c8bff;
+    border-color: #2d6ae6;
+    color: #fff;
+    box-shadow: 0 0 10px #4c8bff88;
+}
+
+
+/******************************************************************
+ *                       6. SHOWCASE / SCREENS                    *
+ ******************************************************************/
+
+.screens{ margin-top:36px; display:flex; flex-direction:column; gap:20px; }
+.grid3{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+.grid2{ display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
+.screen{ width:100%; height:100%; border-radius:16px; object-fit:cover; opacity:0; transform:translateY(12px);
+  transition:opacity .5s ease-out, transform .5s ease-out; background:#0b0b0b; box-shadow:0 16px 36px rgba(0,0,0,0.55);}
+.screen.loaded{opacity:1; transform:translateY(0);}
+.help-placeholder{ height:200px; border-radius:16px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.07);
+  box-shadow:inset 0 0 22px rgba(0,0,0,0.45); }
+
+
+/******************************************************************
+ *                         7. FAQ & SUPPORT                       *
+ ******************************************************************/
+
+/* User request: Make FAQ and Support headings much larger */
+.faq h3, .support-links h3 {
+    font-size: 2.5em; /* Significantly larger font size */
+    margin-bottom: 20px; /* Add some space below the heading */
+}
+
+/* User request: Increase space between FAQ and Support sections */
+.support-links {
+    margin-top: 40px; /* Increased top margin for separation */
+}
+
+/* FAQ Styling for Accordion */
+.faq-question {
+    /* Make it a block element for full width and better click area */
+    display: block;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    /* User request: bold and larger */
+    font-weight: 700; /* Bold */
+    font-size: 1.2em; /* Larger */
+    padding: 15px 0; /* Add some padding */
+    border: none;
+    background: none;
+    color: inherit; /* Inherit text color from parent */
+    transition: color 0.3s ease;
+}
+
+.faq-question::before {
+    content: '+'; /* User request: + symbol */
+    margin-right: 15px;
+    font-size: 1.2em; /* Ensure the symbol is also large */
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+/* Change + to - when open */
+.faq-item.open .faq-question::before {
+    content: '-';
+}
+
+/* Hide answer by default and use max-height for smooth transition */
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    padding-left: 30px; /* Align with question text */
+}
+
+.faq-answer p {
+    padding-bottom: 15px; /* Add padding to the content inside the answer */
+}
+
+
+/******************************************************************
+ *                       8. RESPONSIVE / UTILITY                  *
+ ******************************************************************/
+
+@media (max-width:900px){ .grid3{grid-template-columns:repeat(2,1fr);} }
+@media (max-width:640px){
+  .nav{padding:16px 20px} .links{gap:20px} .grid3,.grid2{grid-template-columns:1fr}
+  .section{padding:100px var(--section-padding)} .panel{padding:40px 32px} .brand{font-size:1.2rem}
+  .title{font-size:2rem} .lead{font-size:1.15rem}
+}
+.reduced-motion *{ transition:none !important; animation:none !important; }
+
+/******************************************************************
+ *                    7.1. SUPPORT LINKS STYLES                   *
+ ******************************************************************/
+
+/* User request: Remove underline from links */
+.support-links a {
+    text-decoration: none;
+}
+
+/* Style for the icons */
+.support-icon {
+    width: 32px; /* Adjust size as needed - User request: larger icons */
+    height: 32px;
+    vertical-align: middle; /* Align icon with text */
+    margin-right: 5px;
+}
+
+/* Style for the text container to ensure proper spacing */
+.support-links-text {
+    line-height: 2.5; /* Increase line height for better separation of links */
+}

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>GRY4FREE - G4FLauncher</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="app" class="app">
+<!-- NAV -->
+<header class="nav-wrap">
+  <div class="nav glass neon">
+    <div class="brand">GRY4FREE</div>
+
+    <!-- Language Switcher usunięty na życzenie użytkownika -->
+
+    <nav class="links">
+      <a class="nav-link" href="#home" data-i18n="nav_home">Home</a>
+      <a class="nav-link" href="#pricing" data-i18n="nav_pricing">Pricing</a>
+      <a class="nav-link" href="#showcase" data-i18n="nav_showcase">Showcase</a>
+      <a class="nav-link" href="#help" data-i18n="nav_help">Help</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HOME -->
+<main>
+  <section id="home" class="section">
+    <div class="panel glass neon content-box">
+      <h1 class="title" data-i18n="title_home"></h1>
+      <p class="lead" data-i18n="lead_home"></p>
+
+      <div class="controls">
+        <a class="btn primary" href="#" id="download-btn" role="button" data-i18n="btn_download"></a>
+        <div class="btn-row">
+          <a href="#pricing" class="btn get-started" data-i18n="btn_get_started"></a>
+          <a href="#showcase" class="btn showcase" data-i18n="btn_showcase"></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+    <main>
+      <section id="pricing" class="section">
+        <div class="panel glass neon content-box">
+            <h2 class="title" data-i18n="title_pricing"></h2>
+            <p class="lead" data-i18n="lead_pricing"></p>
+
+            <div class="pricing-grid">
+
+              <!-- Free Plan -->
+              <div class="plan-card plan-free">
+                <h3 data-i18n="free_plan_name">Free</h3>
+                <table>
+                  <tr><td data-i18n="free_games_week">Games/week</td><td data-i18n="free_games_week_val">5</td></tr>
+                  <tr><td data-i18n="free_dlc_week">DLC/week</td><td data-i18n="free_dlc_week_val">15</td></tr>
+                  <tr><td data-i18n="free_online_week">Online/week</td><td data-i18n="free_online_week_val">3</td></tr>
+                  <tr><td data-i18n="free_fix_week">Fix/week</td><td data-i18n="free_fix_week_val">3</td></tr>
+                  <tr><td data-i18n="free_game_requests">Game requests</td><td data-i18n="free_game_requests_val">5</td></tr>
+                  <tr><td data-i18n="free_wait_time">Wait time</td><td data-i18n="free_wait_time_val">up to 5 days</td></tr>
+                  <tr><td data-i18n="free_game_language">Game language</td><td data-i18n="free_game_language_val">English only</td></tr>
+                </table>
+                <a href="#" class="btn select-plan">
+                  Select Plan<br>
+                  <span data-i18n-price data-plan="free" data-duration="month">Free</span>
+                </a>
+              </div>
+
+              <!-- Pro Plan -->
+              <div class="plan-card plan-pro">
+                <h3 data-i18n="pro_plan_name">Pro</h3>
+                <table>
+                  <tr><td data-i18n="pro_games_week">Games/week</td><td data-i18n="pro_games_week_val">15</td></tr>
+                  <tr><td data-i18n="pro_dlc_week">DLC/week</td><td data-i18n="pro_dlc_week_val">30</td></tr>
+                  <tr><td data-i18n="pro_online_week">Online/week</td><td data-i18n="pro_online_week_val">10</td></tr>
+                  <tr><td data-i18n="pro_fix_week">Fix/week</td><td data-i18n="pro_fix_week_val">5</td></tr>
+                  <tr><td data-i18n="pro_game_requests">Game requests</td><td data-i18n="pro_game_requests_val">15</td></tr>
+                  <tr><td data-i18n="pro_wait_time">Wait time</td><td data-i18n="pro_wait_time_val">up to 2 days</td></tr>
+                  <tr><td data-i18n="pro_game_languages">Game languages</td><td data-i18n="pro_game_languages_val">All available</td></tr>
+                  <tr><td data-i18n="pro_auto_add">Auto-add games to Steam</td><td data-i18n="pro_auto_add_val">✔</td></tr>
+                  <tr><td data-i18n="pro_wipe">Wipe Data (Steam tools repair)</td><td data-i18n="pro_wipe_val">✔</td></tr>
+                  <tr><td data-i18n="pro_discord_badge">Discord badge</td><td data-i18n="pro_discord_badge_val">Pro</td></tr>
+                  <tr><td data-i18n="pro_support_priority">Support priority</td><td data-i18n="pro_support_priority_val">Secondary</td></tr>
+                </table>
+                <a href="#" class="btn select-plan">
+                  Select Plan<br>
+                  <span data-i18n-price data-plan="premium" data-duration="month">50zł</span>
+                </a>
+              </div>
+
+              <!-- Ultimate Plan usunięty na życzenie użytkownika -->
+
+            </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- SHOWCASE -->
+  <section id="showcase" class="section">
+    <div class="panel glass neon content-box">
+      <h2 class="title" data-i18n="title_showcase"></h2>
+      <p class="lead" data-i18n="lead_showcase"></p>
+
+      <div class="screens">
+        <div class="grid3">
+          <img data-src="screen1.png" alt="screen1" class="screen lazy" loading="lazy">
+          <img data-src="screen2.png" alt="screen2" class="screen lazy" loading="lazy">
+          <img data-src="screen3.png" alt="screen3" class="screen lazy" loading="lazy">
+        </div>
+
+        <div class="grid2">
+          <img data-src="screen4.png" alt="screen4" class="screen lazy" loading="lazy">
+          <img data-src="screen5.png" alt="screen5" class="screen lazy" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HELP -->
+  <section id="help" class="section">
+    <div class="panel glass neon content-box small">
+      <h2 class="title" data-i18n="title_help"></h2>
+
+      <!-- FAQ -->
+      <div class="faq">
+
+        <h3 data-i18n="faq_title"></h3>
+
+        <!-- PYTANIE 1 -->
+        <div class="faq-item">
+          <button class="faq-question" data-i18n="faq_q1"></button>
+          <div class="faq-answer">
+            <p>
+            <span data-i18n="faq_a1_l1"></span><br>
+            <span data-i18n="faq_a1_l2"></span><br>
+            <span data-i18n="faq_a1_l3"></span><br>
+            <span data-i18n="faq_a1_l4"></span>
+            </p>
+          </div>
+        </div>
+
+        <!-- PYTANIE 2 -->
+        <div class="faq-item">
+          <button class="faq-question" data-i18n="faq_q2"></button>
+          <div class="faq-answer">
+            <p>
+            <span data-i18n="faq_a2"></span>
+            </p>
+          </div>
+        </div>
+
+        <!-- PYTANIE 3 -->
+        <div class="faq-item">
+          <button class="faq-question" data-i18n="faq_q3"></button>
+          <div class="faq-answer">
+            <p>
+            <span data-i18n="faq_a3"></span>
+            </p>
+          </div>
+        </div>
+
+        <!-- PYTANIE 4 -->
+        <div class="faq-item">
+          <button class="faq-question" data-i18n="faq_q4"></button>
+          <div class="faq-answer">
+            <p>
+            <span data-i18n="faq_a4"></span>
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- SUPPORT LINKI -->
+      <div class="support-links">
+        <h3 data-i18n="support_title"></h3>
+        <p class="support-links-text" data-i18n="support_text">
+          <img src="discord.png" alt="Discord Icon" class="support-icon"> - 
+          <a href="https://discord.gg/SxzefSnBTt" target="_blank"><strong>Discord</strong></a><br>
+          <img src="gmail.png" alt="Email Icon" class="support-icon"> - 
+          <a href="mailto:twojmail@example.com"><strong>Email</strong></a><br>
+          <img src="google.png" alt="Google Docs Icon" class="support-icon"> - 
+          <a href="https://forms.gle/8ijd27rBZPEUG9JX6" target="_blank"><strong>Formularz (Google Forms)</strong></a>
+        </p>
+        <p class="support-links-text">
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <script>
+    // FAQ toggle
+    document.addEventListener("DOMContentLoaded", () => {
+      const items = document.querySelectorAll(".faq-item");
+
+      items.forEach(item => {
+        const btn = item.querySelector(".faq-question");
+        btn.addEventListener("click", () => {
+          item.classList.toggle("open");
+          const answer = item.querySelector(".faq-answer");
+
+          if (item.classList.contains("open")) {
+            answer.style.maxHeight = answer.scrollHeight + "px";
+          } else {
+            answer.style.maxHeight = null;
+          }
+        });
+      });
+    });
+  </script>
+</main>
+  </div>
+
+  <script src="config.js"></script>
+
+  <script src="lang.js"></script>
+
+</body>
+</html>
